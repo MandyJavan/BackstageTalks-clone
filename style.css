@@ -4,9 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   height: 5300px;
   overflow-x: hidden;
+  background-color: #FF608C;
+  transition: all 0.5s ease-in-out;
 }
 
 header {
@@ -27,6 +33,9 @@ header {
   font-weight: 600;
   color: black;
   text-decoration: none;
+}
+#email:hover {
+  text-decoration: underline;
 }
 
 #paraHolder {
@@ -107,6 +116,7 @@ header {
   left: 50%;
   transform: translateX(-50%);
   height: 100%;
+  scroll-snap-type: y mandatory;
 }
 
 .issue img {
@@ -119,6 +129,7 @@ header {
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+  scroll-snap-align: start;
 }
 
 .issue p {
