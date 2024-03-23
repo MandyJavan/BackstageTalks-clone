@@ -6,22 +6,29 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
-  height: 5300px;
   overflow-x: hidden;
   background-color: #FF608C;
-  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  transition: all 0.2s ease;
+  scroll-snap-align:  start;
+  padding: 30px 15px;
 }
 
 header {
-  position: sticky;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 15px;
   top: 0;
+  width: 100%;
 }
 
 #logo {
@@ -34,13 +41,10 @@ header {
   color: black;
   text-decoration: none;
 }
-#email:hover {
-  text-decoration: underline;
-}
 
 #paraHolder {
-  position: sticky;
-  top: 65%;
+  position: fixed;
+  bottom: 40px;
   width: 30%;
   left: 15px;
 }
@@ -49,6 +53,7 @@ header {
   font-size: 20px;
   margin-bottom: 20px;
   width: 300px;
+  font-weight: bold;
 }
 
 #copyright {
@@ -66,7 +71,9 @@ header {
 #emailEnd {
   display: none;
   position: absolute;
-  top: 5250px;
+  top: 5580px;
+  top: 100%;
+  bottom: 20px;
   right: 15px;
   font-size: 18px;
   font-weight: 600;
@@ -90,20 +97,24 @@ header {
 }
 
 #issuesItem {
-  position: sticky;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: start;
-  top: 68%;
+  bottom: 40px;
   width: 80px;
-  left: 100%;
+  right: 0;
   gap: 8px;
 }
+
 #issuesItem a {
   color: black;
   font-size: 20px;
   text-decoration: none;
   border-bottom: 1px solid transparent;
+}
+#issuesItem a:checked {
+  font-weight: 700;
 }
 
 #issuesItem a:hover {
@@ -111,25 +122,46 @@ header {
 }
 
 #itemContainer {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  scroll-snap-type: y mandatory;
+  /* margin-top: 40px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .issue img {
-  width: 420px;
+  width: 388px;
 }
 
 .issue {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  margin-bottom: 100px;
+  height: 100vh;
   scroll-snap-align: start;
+}
+.issue a {
+  color: white;
+  text-decoration: none;
+}
+.issue p:nth-child(3) {
+  margin-top: 20px;
+}
+.issue a:hover {
+  text-decoration: underline;
+}
+
+.issue p:last-child {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#issue6 p a {
+  color: #FF608C;
 }
 
 .issue p {
@@ -149,12 +181,80 @@ header {
   }
   #emailEnd {
     display: block;
+    scroll-snap-align: end;
   }
 
   #paraHolder {
-    position: absolute;
-    top: 5050px;
-    width: 30%;
-    left: 15px;
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0 15px 20px 15px;
+    /* scroll-snap-align: end; */
+  }
+  #policy {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  #logo {
+    width: 160px;
+  }
+  #paraHolder {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  #aboutText {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #emailEnd {
+    position: unset;
+    text-align: center;
+    width: 100%;
+    scroll-snap-align: end;
+  }
+}
+
+@media (max-width: 420px) {
+  #logo {
+    width: 120px;
+  }
+  .issue img {
+    width: 360px;
+  }
+}
+
+
+@media (max-height: 420px) {
+  #logo {
+    width: 120px;
+  }
+  .issue img {
+    width: 170px;
+  }
+
+  #issuesItem a {
+    font-size: 14px;
+  }
+  #email {
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  #emailEnd {
+    display: none;
+  }
+  #itemContainer {
+    width: 50%;
+    background-color: aliceblue;
+  }
+  .issue {
+    flex-direction: row;
   }
 }
