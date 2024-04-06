@@ -12,7 +12,8 @@ window.addEventListener("scroll", () => {
     items.forEach(item => {
       let rect = item.getBoundingClientRect();
       console.log(rect)
-      let isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      // let isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      let isVisible = (rect.top + (rect.top - (2/3))) < window.innerHeight && rect.bottom > 0;
       if (isVisible) {
         myBody.style.backgroundColor = item.getAttribute( "data-color" );
       }
