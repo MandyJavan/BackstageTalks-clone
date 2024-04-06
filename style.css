@@ -18,6 +18,9 @@ body {
   align-items: start;
   transition: all 0.7s  ease;
   padding: 0 15px;
+  transition: all 0.2s ease;
+  scroll-snap-align:  start;
+  padding: 30px 15px;
 }
 
 header {
@@ -71,6 +74,8 @@ header {
   display: none;
   position: absolute;
   top: 5580px;
+  top: 100%;
+  bottom: 20px;
   right: 15px;
   font-size: 18px;
   font-weight: 600;
@@ -121,6 +126,10 @@ header {
 #itemContainer {
   display: block;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   margin-bottom: 10px;
   width: 100%;
 }
@@ -132,9 +141,11 @@ header {
 .issue {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 100vh;
+  scroll-snap-align: start;
+
 }
 .issue a {
   color: white;
@@ -145,6 +156,13 @@ header {
 }
 .issue a:hover {
   text-decoration: underline;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .issue p:last-child {
@@ -178,6 +196,7 @@ header {
   }
   #emailEnd {
     display: block;
+    scroll-snap-align: end;
   }
 
   #paraHolder {
@@ -212,16 +231,23 @@ header {
     position: unset;
     text-align: center;
     width: 100%;
+    scroll-snap-align: end;
   }
 }
 
 @media (max-width: 420px) {
+
   .issue {
     margin-top: 0
+  }
+  #logo {
+    width: 120px;
+
   }
   .issue img {
     width: 360px;
   }
+
   .issue p, .issue a {
     font-size: 14px;
   }
@@ -239,5 +265,34 @@ header {
   
   .issue p, .issue p a {
     font-size: 14px;
+  }
+}
+
+
+@media (max-height: 420px) {
+  #logo {
+    width: 120px;
+  }
+  .issue img {
+    width: 170px;
+  }
+
+  #issuesItem a {
+    font-size: 14px;
+  }
+  #email {
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  #emailEnd {
+    display: none;
+  }
+  #itemContainer {
+    width: 50%;
+    background-color: aliceblue;
+  }
+  .issue {
+    flex-direction: row;
   }
 }
