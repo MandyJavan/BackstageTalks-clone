@@ -20,4 +20,4 @@ window.addEventListener("scroll", () => {
     })
 });
 
-console.log(window.innerWidth)
+// console.log(window.innerWidth)
